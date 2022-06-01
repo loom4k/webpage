@@ -54,20 +54,23 @@ export const Status: FC = () => {
     }
 
 	return (
-		<span className="rounded-md flex space-x-2 text-gray-700 items-center">
-            I am currently
-            <span
-                className={classnames(
-                    "h-3",
-                    "w-3",
-                    "ml-2",
-                    "mr-2",
-                    "rounded-full",
-                    "flex-shrink-0",
-                    getColor().color,
-                )}
-            />
-            {getColor().Status}
-		</span>
+        <>
+            <span className="max-w-sm mx-auto rounded-md flex space-x-2 items-center text-center">
+                I am currently
+                <span
+                    className={classnames(
+                        "h-3",
+                        "w-3",
+                        "ml-2",
+                        "mr-2",
+                        "items-center",
+                        "text-center",
+                        "rounded-full",
+                        getColor().color,
+                    )}
+                />
+                {getColor().Status}
+            </span>
+        </>
 	);
 };

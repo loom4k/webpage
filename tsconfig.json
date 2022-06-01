@@ -18,8 +18,9 @@
       "@libs/*": ["libs/*"],
       "@components/*": ["components/*"],
     },
-    "incremental": true
+    "incremental": true,
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/Changelog/index.jsx"],
   "exclude": ["node_modules"]
 }
