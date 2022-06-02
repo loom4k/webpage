@@ -11,20 +11,10 @@ const links = [
         id: 1
     },
     {
-        name: "contact",
-        href: "/#contact",
-        id: 4
-    },
-    {
-        name: "blog",
-        href: "/blog",
-        id: 5
-    },
-    {
-        name: "changelog",
-        href: "/changelog",
-        id: 6
-    },
+        name: "soon",
+        href: "/#",
+        id: 2
+    }
 ]
 
 export const Navbar: FC = () => {
