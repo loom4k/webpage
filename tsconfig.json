@@ -15,8 +15,10 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@libs/*": ["libs/*"],
       "@components/*": ["components/*"],
+      "@assets/*": ["assets/*"],
+      "@libs/*": ["libs/*"],
+      "@styles/*": ["styles/*"]
     },
     "incremental": true,
     "allowSyntheticDefaultImports": true

@@ -19,6 +19,8 @@ const stackRef: { [key: string]: any } = {
     "tensorflow": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/1200px-Tensorflow_logo.svg.png"
 }
 
+import Tilt from 'react-parallax-tilt'
+
 export const RepoCard: FC<Project> = ({
     name,
     description,
@@ -29,19 +31,25 @@ export const RepoCard: FC<Project> = ({
         <>
             <div>
                 <Link href={link}>
-                    <div className="p-4 bg-slate-50 hover:bg-slate-100 rounded-lg h-full hover:cursor-pointer">
-                        <div className="flex items-center space-x-1">
-                            <span className="flex-grow truncate font-bold">{name}</span>
+                    <Tilt
+                        scale={1.05}
+                        tiltMaxAngleX={20}
+                        tiltMaxAngleY={20}
+                    >
+                        <div className="p-4 bg-slate-50 hover:bg-slate-100 rounded-lg h-full hover:cursor-pointer">
+                            <div className="flex items-center space-x-1">
+                                <span className="flex-grow truncate font-bold">{name}</span>
+                            </div>
+                            <p className="line-clamp-2 text-base h-22 sm:h-32">
+                                {description}
+                            </p>
+                            <div className="flex mt-3">
+                                {stack.map(s => (
+                                    <img key={s} src={stackRef[s]} className="mt-1 mr-4 block w-6 visible md:invisible lg:visible" />
+                                ))}
+                            </div>
                         </div>
-                        <p className="line-clamp-2 text-base h-22 sm:h-32">
-                            {description}
-                        </p>
-                        <div className="flex mt-3">
-                            {stack.map(s => (
-                                <img key={s} src={stackRef[s]} className="mt-1 mr-4 block w-6 visible md:invisible lg:visible" />
-                            ))}
-                        </div>
-                    </div>
+                    </Tilt>
                 </Link>
             </div>
         </>

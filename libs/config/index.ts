@@ -1,3 +1,5 @@
+import { STACK } from './stack';
+
 export const CONFIG = {
     NAME: "Loïk",
     SURNAME: "Mallat",
@@ -11,5 +13,6 @@ export const CONFIG = {
             repo: "webpage",
             repo_id: "377311375"
         }
-    }
+    },
+    STACK
 }

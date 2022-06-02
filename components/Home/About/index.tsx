@@ -5,7 +5,7 @@ export const About = () => {
         <>
             <section 
                 id="projects"
-                className="min-h-screen py-16 bg-white text-black"
+                className="min-h-screen pt-16 -mb-24 bg-white text-black"
             >
                 <p className="mx-auti font-semibold text-green-500 text-center">Here are some of...</p>
                 <h1 className="text-4xl -mt-1 mb-10 mx-auto font-semibold font-heading text-center">My best projects</h1>
