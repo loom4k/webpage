@@ -11,8 +11,8 @@ const links = [
         id: 1
     },
     {
-        name: "soon",
-        href: "/#",
+        name: "changelog",
+        href: "/changelog",
         id: 2
     }
 ]
