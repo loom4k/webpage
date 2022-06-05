@@ -7,7 +7,7 @@ export default class Changelog extends Component {
         const data = await response.json()
 
         return {
-            commits: data.splice(0, 20)
+            commits: data
         }
     }
 
@@ -21,16 +21,14 @@ export default class Changelog extends Component {
                     {
                         this.props.commits.map((commit, index) => {
                             return (
-                                <a key={index} href={commit.html_url}> 
-                                    <div className="flex flex-col justify-center items-center">
-                                        <div className="w-2/3 mb-6 p-6 bg-slate-50 hover:bg-slate-100 rounded-lg">
-                                            <div className="text-lg"><span className="font-bold">{commit.commit.message.split('\n\n')[0]}</span> by {commit.commit.author.name} <i>({commit.commit.author.email})</i></div>
-                                            <p>{commit.commit.message.split('\n\n')[1]}</p>
-                                            <br />
-                                            <p>{commit.commit.author.date.split('T')[0]} {commit.commit.author.date.split('T')[1].split('Z')}</p>
-                                        </div>
+                                <div key={index} className="flex flex-col justify-center items-center">
+                                    <div className="w-2/3 mb-6 p-6 bg-slate-50 hover:bg-slate-100 rounded-lg">
+                                        <div className="text-lg"><span className="font-bold">{commit.commit.message.split('\n\n')[0]}</span> by {commit.commit.author.name} <i>({commit.commit.author.email})</i></div>
+                                        <p>{commit.commit.message.split('\n\n')[1]}</p>
+                                        <br />
+                                        <p>{commit.commit.author.date.split('T')[0]} {commit.commit.author.date.split('T')[1].split('Z')}</p>
                                     </div>
-                                </a>
+                                </div>
                             )
                         })
                     }
