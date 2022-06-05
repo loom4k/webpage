@@ -21,7 +21,7 @@ export default class Changelog extends Component {
                     {
                         this.props.commits.map((commit, index) => {
                             return (
-                                <a href={commit.url}>
+                                <a href={commit.html_url}>
                                     <div key={index} className="flex flex-col justify-center items-center">
                                         <div className="w-2/3 mb-6 p-6 bg-slate-50 hover:bg-slate-100 rounded-lg">
                                             <div className="text-lg"><span className="font-bold">{commit.commit.message.split('\n\n')[0]}</span> by {commit.commit.author.name} <i>({commit.commit.author.email})</i></div>
