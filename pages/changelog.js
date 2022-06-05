@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Navbar } from "../components/Layout/Navbar/index";
+import { SEO } from "../components/Layout/SEO/index";
 
 export default class Changelog extends Component {
     static async getInitialProps() {
@@ -14,6 +15,7 @@ export default class Changelog extends Component {
     render() {
         return (
             <>
+                <SEO />
                 <Navbar />
                 <div className="p-12">
                     <h1 className="text-5xl text-center font-bold mb-4">Changelog</h1>
