@@ -8,7 +8,7 @@ export default class Changelog extends Component {
         const data = await response.json()
 
         return {
-            commits: data
+            commits: data.splice(0, 20)
         }
     }
 

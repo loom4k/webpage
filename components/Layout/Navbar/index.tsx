@@ -16,7 +16,7 @@ const links = [
         id: 2
     },
     {
-        name: "sponsorme",
+        name: "sponsor me",
         href: "https://github.com/sponsors/loom4k",
         id: 3
     }
