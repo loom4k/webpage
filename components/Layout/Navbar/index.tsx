@@ -14,6 +14,11 @@ const links = [
         name: "changelog",
         href: "/changelog",
         id: 2
+    },
+    {
+        name: "sponsorme",
+        href: "https://github.com/sponsors/loom4k",
+        id: 3
     }
 ]
 
