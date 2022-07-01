@@ -32,7 +32,7 @@ export const Header: FC = () => {
                 }}
                 className="w-36 h-10 rounded-md bg-pastel-green hover:cursor-pointer"
             >
-                <p className="mt-1.5"><HiMail className="float-left mt-[5.25px] ml-[15px]"/>contact</p>
+                <p className="mt-1.5 text-epic-black"><HiMail className="float-left mt-[5.25px] ml-[15px]"/>contact</p>
             </motion.div>
         </button>
     </div>;

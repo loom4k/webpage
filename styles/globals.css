@@ -6,7 +6,12 @@
 /* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-Regular.ttf')
+}
+
 html,
 body {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'JetBrains Mono', monospace;
 }
