@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -13,16 +13,21 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["components/*"],
-      "@assets/*": ["assets/*"],
-      "@libs/*": ["libs/*"],
-      "@styles/*": ["styles/*"]
-    },
     "incremental": true,
-    "allowSyntheticDefaultImports": true
+      "baseUrl": "./",
+      "paths": {
+          "@services/*": ["./services/*"],
+          "@utils/*": ["./utils/*"],
+          "@interfaces/*": ["./utils/interfaces/*"],
+          "@components/*": ["./components/*"],
+          "@root/*": ["./*"],
+          "@assets/*": ["./public/*"],
+          "@struct/*" : ["./struct/*"],
+          "@styles/*" : ["./styles/*"],
+          "@states/*" : ["./states/*"],
+          "@lang/*" : ["./lang/*"],
+      }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "@components/Layout/Navbar/index.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

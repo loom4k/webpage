@@ -1,22 +1,21 @@
-import type { NextPage } from 'next'
+import type { NextPage } from 'next';
+import { useState } from 'react';
 
-import { Navbar } from '@components/Layout/Navbar'
-import { Hero } from '@components/Home/Hero'
-import { About } from '@components/Home/About'
-import { Stack } from '@components/Stack'
-import { SEO } from "@components/Layout/SEO"
+import { Nullable } from '@utils/common';
+import Header from '@components/header';
 
-const Home: NextPage = () => {
-  return (
-    <>
-      <SEO />
-      <Navbar />
-      <Hero />
-
-      <About />
-      <Stack />
-    </>
-  )
+interface PageProps {
+    lang: string,
+    fullIntro: Nullable<String>
 }
 
-export default Home
+const Home: NextPage<PageProps> = ({ lang, fullIntro }) => {
+    const [ isLoading, setIsLoading ] = useState(false);
+    const [ introVisible, setIntroVisible ] = useState(false);
+
+    return <div className="flex">
+        <Header />
+    </div>;
+}
+
+export default Home;
