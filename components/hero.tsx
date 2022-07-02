@@ -50,7 +50,7 @@ interface LanguageLinkProps {
 }
 
 const LanguageLink = ({ name, href, color }: LanguageLinkProps) => {
-    return <span className={color + " " + "hover:cursor-pointer"} onClick={() => window.location.href = 'https://www.typescriptlang.org/'}>
+    return <span className={color + " " + "hover:cursor-pointer"} onClick={() => window.location.href = href}>
         {name}
     </span>;   
 }
