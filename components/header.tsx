@@ -167,7 +167,7 @@ const MobileDropDown = () => {
             text-center text-xl py-2.5 rounded-md
             mt-2.5">
             <p className="text-epic-black"
-            >contact@loom4k</p>
+            >contact@loom4k.me</p>
         </div>
     </div>
 }
