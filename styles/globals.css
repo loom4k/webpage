@@ -15,3 +15,8 @@ html,
 body {
     font-family: 'JetBrains Mono', monospace;
 }
+
+::selection {
+    background-color: theme('colors.transparent-pastel.green');
+    color: #000;
+}

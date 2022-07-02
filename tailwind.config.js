@@ -22,8 +22,14 @@ module.exports = {
         'pink': '#FF77FF',
         'white': '#FFFFFF',
         'black': '#000000',
+      },
+      'transparent-pastel': {
+        'green': '#8fddae99',
       }
-    },  
+    },
+    letterSpacing: {
+      tightest: '-0.075em'
+    },
     extend: {},
   },
   plugins: [],

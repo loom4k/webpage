@@ -2,6 +2,7 @@ import { motion, useAnimation } from "framer-motion";
 import { FC, useCallback, useEffect, useState } from "react";
 import { HiMail } from "react-icons/hi";
 import { GiHamburgerMenu } from "react-icons/gi";
+import useMediaQuery from "@utils/useMediaQuery";
 
 const variants = {
     hover: { y: -5 },
@@ -26,39 +27,14 @@ const links = [
     }
 ]
 
-const useMediaQuery = (width: any) => {
-    const [ targetReached, setTargetReached ] = useState(false);
-
-    const updateTarget = useCallback((e: { matches: any; }) => {
-        if(e.matches) {
-            setTargetReached(true);
-        } else {
-            setTargetReached(false);
-        }
-    }, []);
-
-    useEffect(() => {
-        const media = window.matchMedia(`(max-width: ${width}px)`);
-        media.addListener(updateTarget);
-        
-        if(media.matches) {
-            setTargetReached(true);
-        }
-
-        return () => media.removeListener(updateTarget);
-    }, []);
-
-    return targetReached;
-};
-
 export const Header: FC = () => {
     const isBreakPoint = useMediaQuery(768);
     const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false);
     
     return <> 
-        <div className="fixed top-0 w-screen h-24 md:h-48 px-10
+        <motion.div className="fixed md:static top-0 w-screen h-24 md:h-48 px-24 2xl:px-56
                     flex flex-row
-                    bg-epic-black shadow-lg">
+                    bg-epic-black">
             <h1 
                 onClick={() => { window.location.href = '/' }} 
                 className="flex flex-row justify-center items-center text-white text-3xl mr-5"
@@ -67,11 +43,11 @@ export const Header: FC = () => {
             </h1>
 
             { !isBreakPoint && links.map((link, key) => {
-                return <HeaderLink name={link.name} href={link.href} slash={link.slash} />
+                return <HeaderLink name={link.name} href={link.href} slash={link.slash} key={key} />
             })}
 
             { isBreakPoint ? ( <MobileNavButton func={setMobileMenuOpen} mobileMenuOpen={mobileMenuOpen} /> ) : ( <ContactButton /> ) }
-        </div>
+        </motion.div>
         { (mobileMenuOpen && isBreakPoint) ? ( <MobileDropDown /> ) : null }
     </>;
 }
@@ -108,7 +84,7 @@ const ContactButton = () => {
                     flex flex-row justify-center items-center 
                     text-white text-xl 
                     ml-auto hover:cursor-default"
-        onClick={() => { window.location.href = 'mailto:contact@loom4k.me' }}
+            onClick={() => window.location.href='https://hidemyemail.cc/a5f135c348ace656c125b7f87aee3bc6'}
     >
         <motion.div 
             whileHover={{
@@ -151,7 +127,7 @@ const MobileNavButton = ({func, mobileMenuOpen}: MobileNavButtonProps) => {
 }
 
 const MobileDropDown = () => {
-    return <div
+    return <motion.div
         className="fixed top-20 w-screen h-56 px-10
             flex flex-col
             bg-epic-black"
@@ -159,6 +135,7 @@ const MobileDropDown = () => {
         { links.map((link, key) => {
                 return <div className="hover:cursor-pointer hover:bg-epic-black-light
                     text-center py-2.5 rounded-md"
+                    key={key}
                 >
                     <p className="text-white text-xl">{link.slash ? ( <span className="text-pastel-green">/</span> ) : ( <span className="text-pastel-green">#</span> )}{link.name}</p>
                 </div>
@@ -168,11 +145,12 @@ const MobileDropDown = () => {
             mt-2.5"
             whileHover={{
                 y: -5
-            }}>
+            }}
+            onClick={() => window.location.href='https://hidemyemail.cc/a5f135c348ace656c125b7f87aee3bc6'}>
             <p className="text-epic-black"
             >contact@loom4k.me</p>
         </motion.div>
-    </div>
+    </motion.div>
 }
 
 export default Header;
