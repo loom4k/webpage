@@ -163,12 +163,15 @@ const MobileDropDown = () => {
                     <p className="text-white text-xl">{link.slash ? ( <span className="text-pastel-green">/</span> ) : ( <span className="text-pastel-green">#</span> )}{link.name}</p>
                 </div>
         }) }
-        <div className="hover:cursor-pointer bg-pastel-green
+        <motion.div className="hover:cursor-pointer bg-pastel-green
             text-center text-xl py-2.5 rounded-md
-            mt-2.5">
+            mt-2.5"
+            whileHover={{
+                y: -5
+            }}>
             <p className="text-epic-black"
             >contact@loom4k.me</p>
-        </div>
+        </motion.div>
     </div>
 }
 
