@@ -56,7 +56,7 @@ export const Header: FC = () => {
     const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false);
     
     return <> 
-        <div className="fixed top-0 w-screen h-48 px-10
+        <div className="fixed top-0 w-screen h-24 md:h-48 px-10
                     flex flex-row
                     bg-epic-black shadow-lg">
             <h1 
@@ -152,7 +152,7 @@ const MobileNavButton = ({func, mobileMenuOpen}: MobileNavButtonProps) => {
 
 const MobileDropDown = () => {
     return <div
-        className="fixed top-36 w-screen h-48 px-10
+        className="fixed top-20 w-screen h-56 px-10
             flex flex-col
             bg-epic-black"
     >
@@ -163,6 +163,12 @@ const MobileDropDown = () => {
                     <p className="text-white text-xl">{link.slash ? ( <span className="text-pastel-green">/</span> ) : ( <span className="text-pastel-green">#</span> )}{link.name}</p>
                 </div>
         }) }
+        <div className="hover:cursor-pointer bg-pastel-green
+            text-center text-xl py-2.5 rounded-md
+            mt-2.5">
+            <p className="text-epic-black"
+            >contact@loom4k</p>
+        </div>
     </div>
 }
 
