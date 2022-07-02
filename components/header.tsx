@@ -32,7 +32,7 @@ export const Header: FC = () => {
     const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false);
     
     return <> 
-        <motion.div className="fixed md:static top-0 w-screen h-24 md:h-48 px-24 2xl:px-56
+        <motion.div className="fixed md:static top-0 w-screen h-24 md:h-48 px-8 md:px-24 2xl:px-56
                     flex flex-row
                     bg-epic-black">
             <h1 
