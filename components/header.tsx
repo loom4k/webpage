@@ -8,6 +8,24 @@ const variants = {
     initial: { y: 0 },
 }
 
+const links = [
+    {
+        name: "about",
+        href: "#about",
+        slash: false
+    },
+    {
+        name: "stack",
+        href: "/stack",
+        slash: true
+    },
+    {
+        name: "blog",
+        href: "/blog",
+        slash: true
+    }
+]
+
 const useMediaQuery = (width: any) => {
     const [ targetReached, setTargetReached ] = useState(false);
 
@@ -35,28 +53,27 @@ const useMediaQuery = (width: any) => {
 
 export const Header: FC = () => {
     const isBreakPoint = useMediaQuery(768);
+    const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false);
     
-    return <div className="fixed top-0 w-screen h-48 px-10
+    return <> 
+        <div className="fixed top-0 w-screen h-48 px-10
                     flex flex-row
                     bg-epic-black shadow-lg">
-        <h1 
-            onClick={() => { window.location.href = '/' }} 
-            className="flex flex-row justify-center items-center text-white text-3xl mr-5"
-        >
-            <div className="hover:cursor-pointer">loom4k</div>
-        </h1>
-        <HeaderLink name={"about"} href={"#about"} slash={true} />
-        <HeaderLink name={"stack"} href={"/stack"} slash={true} />
-        <HeaderLink name={"blog"} href={"/blog"} slash={true} />
+            <h1 
+                onClick={() => { window.location.href = '/' }} 
+                className="flex flex-row justify-center items-center text-white text-3xl mr-5"
+            >
+                <div className="hover:cursor-pointer">loom4k</div>
+            </h1>
 
-        {
-            isBreakPoint ? (
-                <MobileNavButton />
-            ) : (
-                <ContactButton />
-            )
-        }
-    </div>;
+            { !isBreakPoint && links.map((link, key) => {
+                return <HeaderLink name={link.name} href={link.href} slash={link.slash} />
+            })}
+
+            { isBreakPoint ? ( <MobileNavButton func={setMobileMenuOpen} mobileMenuOpen={mobileMenuOpen} /> ) : ( <ContactButton /> ) }
+        </div>
+        { (mobileMenuOpen && isBreakPoint) ? ( <MobileDropDown /> ) : null }
+    </>;
 }
 
 interface HeaderLinkProps {
@@ -80,7 +97,7 @@ const HeaderLink = ({ name, href, slash }: HeaderLinkProps) => {
             animate={controls}
         >
             <a href={href} className="text-white">
-                {slash && <span className="text-pastel-green">/</span>}
+                {slash ? ( <span className="text-pastel-green">/</span> ) : ( <span className="text-pastel-green">#</span> )}
             {name}</a>
         </motion.div>
     </div>;
@@ -107,12 +124,17 @@ const ContactButton = () => {
     </button>
 }
 
-const MobileNavButton = () => {
+interface MobileNavButtonProps {
+    func: any,
+    mobileMenuOpen: boolean
+}
+
+const MobileNavButton = ({func, mobileMenuOpen}: MobileNavButtonProps) => {
     return <button className="visible md:invisible
                     flex flex-row justify-center items-center
                     text-white text-xl
                     ml-auto hover:cursor-default"
-        onClick={() => {}}
+        onClick={() => { func(!mobileMenuOpen) }}
     >
           <motion.div
             whileHover={{
@@ -126,6 +148,22 @@ const MobileNavButton = () => {
             <p className="mt-1.5 text-epic-black"><GiHamburgerMenu className="float-left mt-[5.25px] ml-2.5"/><span className="invisible lg:visible">contact</span></p>
         </motion.div>  
     </button>
+}
+
+const MobileDropDown = () => {
+    return <div
+        className="fixed top-36 w-screen h-48 px-10
+            flex flex-col
+            bg-epic-black"
+    >
+        { links.map((link, key) => {
+                return <div className="hover:cursor-pointer hover:bg-epic-black-light
+                    text-center py-2.5 rounded-md"
+                >
+                    <p className="text-white text-xl">{link.slash ? ( <span className="text-pastel-green">/</span> ) : ( <span className="text-pastel-green">#</span> )}{link.name}</p>
+                </div>
+        }) }
+    </div>
 }
 
 export default Header;

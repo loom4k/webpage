@@ -11,6 +11,7 @@ module.exports = {
       current: 'currentColor',
       'white': '#fff',
       'epic-black': '#131212',
+      'epic-black-light': '#1c1b1b',
       'pastel': {
         'green': '#6dcc93',
         'red': "#FF6666",
