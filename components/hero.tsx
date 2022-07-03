@@ -19,7 +19,7 @@ export const Hero: FC = () => {
             )
         }
         <div className="flex flex-col lg:w-1/2
-            px-16 md:px-24 md:pr-6 2xl:pl-56 pt-16">
+            px-8 sm:px-20 md:px-24 md:pr-6 2xl:pl-56 pt-16">
             <h1 className="text-6xl tracking-tighter text-white">
                 Loïk Mallat
                 { !useMediaQuery(768) ? (
@@ -41,7 +41,7 @@ export const Hero: FC = () => {
                 <LanguageLink name={"c#"} href={"https://docs.microsoft.com/en-us/dotnet/csharp/"} color={"text-pastel-pink"} />
 
                 <br /><br />
-                Right now, I am <Status />
+                Right now, I am <span className="text-pastel-green"><Status /></span>
             </p>
         </div>
         {!useMediaQuery(1024) && 

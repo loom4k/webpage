@@ -135,7 +135,7 @@ const MobileNavButton = ({func, mobileMenuOpen}: MobileNavButtonProps) => {
 
 const MobileDropDown = () => {
     return <motion.div
-        className="fixed top-20 w-screen h-56 px-10
+        className="fixed top-20 w-screen h-60 px-10
             flex flex-col
             bg-epic-black"
     >
