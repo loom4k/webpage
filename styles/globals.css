@@ -14,6 +14,7 @@
 html,
 body {
     font-family: 'JetBrains Mono', monospace;
+    background-color: theme('colors.epic-black');
 }
 
 ::selection {

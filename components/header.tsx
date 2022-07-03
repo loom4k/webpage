@@ -13,17 +13,22 @@ const links = [
     {
         name: "about",
         href: "#about",
-        slash: false
+        slash: "hash"
     },
     {
         name: "stack",
         href: "/stack",
-        slash: true
+        slash: "slash"
     },
     {
         name: "blog",
         href: "/blog",
-        slash: true
+        slash: "slash"
+    },
+    {
+        name: "sponsorme",
+        href: "https://github.com/sponsors/loom4k",
+        slash: "arrow"
     }
 ]
 
@@ -55,7 +60,7 @@ export const Header: FC = () => {
 interface HeaderLinkProps {
     name: string,
     href: string,
-    slash: boolean
+    slash: string
 }
 
 const HeaderLink = ({ name, href, slash }: HeaderLinkProps) => {
@@ -73,7 +78,9 @@ const HeaderLink = ({ name, href, slash }: HeaderLinkProps) => {
             animate={controls}
         >
             <a href={href} className="text-white">
-                {slash ? ( <span className="text-pastel-green">/</span> ) : ( <span className="text-pastel-green">#</span> )}
+                {slash == "slash" ? ( <span className="text-pastel-green">/</span> ) : null}
+                {slash == "hash" ? ( <span className="text-pastel-green">#</span> ) : null}
+                {slash == "arrow" && !useMediaQuery(800) ? ( <span className="text-pastel-green">→ </span> ) : null}
             {name}</a>
         </motion.div>
     </div>;
@@ -137,7 +144,13 @@ const MobileDropDown = () => {
                     text-center py-2.5 rounded-md"
                     key={key}
                 >
-                    <p className="text-white text-xl">{link.slash ? ( <span className="text-pastel-green">/</span> ) : ( <span className="text-pastel-green">#</span> )}{link.name}</p>
+                    <p className="text-white text-xl">
+                        {link.slash == "slash" ? ( <span className="text-pastel-green">/</span> ) : null}
+                        {link.slash == "hash" ? ( <span className="text-pastel-green">#</span> ) : null}
+                        {link.slash == "arrow" ? ( <span className="text-pastel-green">→ </span> ) : null}
+                        
+                        {link.name}
+                    </p>
                 </div>
         }) }
         <motion.div className="hover:cursor-pointer bg-pastel-green
