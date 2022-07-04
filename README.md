@@ -10,7 +10,7 @@ You can run this website locally using [Node.js](https://nodejs.org) and [NPM](h
 To use this repository, you will need the following installed locally:
 - [Node.js](https://nodejs.org/)
 - npm (should be installed with node)
-- A container runtime, like [Docker](https://www.docker.com/) (soon)
+- A container runtime, like [Docker](https://www.docker.com/)
 
 Before you start, make sure to install the dependencies. Clone the repository and navigate to the directory:
 ```sh
@@ -28,6 +28,9 @@ npm install
 npm build
 npm run
 ```
+
+
+
 This will start the Next.js local server on port 3000. Open up your browser to https://localhost:3000 to view the website. As you make changes to components and pages, Next.js updates the website and forces a browser refresh.
 
 ## Troubleshooting
