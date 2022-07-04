@@ -44,7 +44,7 @@ export const Hero: FC = () => {
                 Right now, I am <span className="text-pastel-green"><Status /></span>
             </p>
         </div>
-        {!useMediaQuery(1024) && 
+        {!useMediaQuery(1023) && 
             <div className="flex flex-col w-1/2">
                 <div className="flex flex-col items-center justify-center mx-auto mr-24 2xl:mr-56">
                     <img src={CONFIG.AVATAR_URL} alt="loom4k" className="mx-auto md:h-128 md:w-128 w-full max-w-lg object-cover rounded-3xl" />

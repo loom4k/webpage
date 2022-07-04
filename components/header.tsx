@@ -1,5 +1,5 @@
-import { motion, useAnimation } from "framer-motion";
-import { FC, useCallback, useEffect, useState } from "react";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import { FC, useState } from "react";
 import { HiMail } from "react-icons/hi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import useMediaQuery from "@utils/useMediaQuery";
@@ -47,8 +47,15 @@ export const Header: FC = () => {
                 <div className="hover:cursor-pointer">loom4k</div>
             </h1>
 
+            {
+                !useMediaQuery(835) && <>
+                    <HeaderLink name={"about"} href={"#about"} slash={"hash"} />
+                </>
+            }
+
             { !isBreakPoint && links.map((link, key) => {
-                return <HeaderLink name={link.name} href={link.href} slash={link.slash} key={key} />
+                if(key == 0) return <></>;
+                return <HeaderLink name={link.name} href={link.href} slash={link.slash} key={key} />;
             })}
 
             { isBreakPoint ? ( <MobileNavButton func={setMobileMenuOpen} mobileMenuOpen={mobileMenuOpen} /> ) : ( <ContactButton /> ) }
@@ -80,7 +87,7 @@ const HeaderLink = ({ name, href, slash }: HeaderLinkProps) => {
             <a href={href} className="text-white">
                 {slash == "slash" ? ( <span className="text-pastel-green">/</span> ) : null}
                 {slash == "hash" ? ( <span className="text-pastel-green">#</span> ) : null}
-                {slash == "arrow" && !useMediaQuery(800) ? ( <span className="text-pastel-green">→ </span> ) : null}
+                {slash == "arrow" ? ( <span className="text-pastel-green">&#8594;&nbsp;</span> ) : null}
             {name}</a>
         </motion.div>
     </div>;
@@ -142,6 +149,7 @@ const MobileDropDown = () => {
         { links.map((link, key) => {
                 return <div className="hover:cursor-pointer hover:bg-epic-black-light
                     text-center py-2.5 rounded-md"
+                    onClick={() => { window.location.href = link.href }}
                     key={key}
                 >
                     <p className="text-white text-xl">

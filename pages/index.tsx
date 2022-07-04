@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Nullable } from '@utils/common';
 import Header from '@components/header';
 import Hero from '@components/hero';
-import { AnimatePresence } from 'framer-motion';
+import About from '@components/about';
 
 interface PageProps {
     lang: string,
@@ -18,6 +18,7 @@ const Home: NextPage<PageProps> = ({ lang, fullIntro }) => {
     return <div className="relative">
         <Header />
         <Hero />
+        <About />
     </div>;
 }
 
