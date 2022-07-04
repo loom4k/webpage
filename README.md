@@ -29,8 +29,6 @@ npm build
 npm run
 ```
 
-
-
 This will start the Next.js local server on port 3000. Open up your browser to https://localhost:3000 to view the website. As you make changes to components and pages, Next.js updates the website and forces a browser refresh.
 
 ## Troubleshooting
