@@ -4,20 +4,23 @@
 @tailwind utilities;
 
 /* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
 
 @font-face {
-    font-family: 'JetBrains Mono';
-    src: url('/fonts/JetBrainsMono-Regular.ttf')
+	font-family: "JetBrains Mono";
+	src: url("/fonts/JetBrainsMono-Regular.ttf");
 }
 
-html,
+html {
+	scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'JetBrains Mono', monospace;
-    background-color: theme('colors.epic-black');
+	font-family: "JetBrains Mono", monospace;
+	background-color: theme("colors.epic-black");
 }
 
 ::selection {
-    background-color: theme('colors.transparent-pastel.green');
-    color: #000;
+	background-color: theme("colors.transparent-pastel.green");
+	color: #000;
 }
