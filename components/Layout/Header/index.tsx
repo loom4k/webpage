@@ -1,10 +1,11 @@
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { HiMail } from "react-icons/hi";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import useMediaQuery from "@utils/useMediaQuery";
 import Highlight from "@components/Highlight";
+import { CONFIG } from "@root/libs/config";
 
 const variants = {
 	hover: { y: -5 },
@@ -37,13 +38,14 @@ const links = [
 export const Header: FC = () => {
 	const isBreakPoint = useMediaQuery(768);
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+	const [onMainPage, setOnMainPage] = useState(false);
 
 	return (
 		<>
 			<motion.div
-				className="fixed md:static top-0 w-screen h-24 md:h-48 px-8 md:px-24 2xl:px-56
+				className={`fixed md:static top-0 w-screen h-24 md:h-48 px-8 md:px-24 2xl:px-56
                     flex flex-row
-                    bg-epic-black"
+                    ${mobileMenuOpen ? 'bg-epic-black-light' : 'bg-epic-black'}`}
 			>
 				<h1
 					onClick={() => {
@@ -51,7 +53,7 @@ export const Header: FC = () => {
 					}}
 					className="flex flex-row justify-center items-center text-white text-3xl mr-5"
 				>
-					<div className="hover:cursor-pointer">loom4k</div>
+					<div className="hover:cursor-pointer">{CONFIG.NICKNAME}</div>
 				</h1>
 
 				{!useMediaQuery(835) && (
@@ -169,6 +171,7 @@ const MobileNavButton = ({ func, mobileMenuOpen }: MobileNavButtonProps) => {
                     text-white text-xl
                     ml-auto hover:cursor-default"
 			onClick={() => {
+				document.body.style.overflow = 'auto'
 				func(!mobileMenuOpen);
 			}}
 		>
@@ -193,9 +196,9 @@ const MobileNavButton = ({ func, mobileMenuOpen }: MobileNavButtonProps) => {
 const MobileDropDown = () => {
 	return (
 		<motion.div
-			className="fixed top-20 w-screen h-60 px-10
+			className="relative top-20 w-screen h-72 px-10
             flex flex-col
-            bg-epic-black"
+            bg-epic-black-light shadow-epic-black-light shadow-xl"
 		>
 			{links.map((link, key) => {
 				return (

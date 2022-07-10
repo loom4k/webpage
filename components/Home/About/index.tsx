@@ -1,4 +1,5 @@
 import Highlight from "@components/Highlight";
+import { CONFIG } from "@root/libs/config";
 import useMediaQuery from "@utils/useMediaQuery";
 import { motion } from "framer-motion";
 import { FC } from "react";
@@ -15,7 +16,7 @@ export const About: FC = () => {
                 flex flex-col"
 			>
 				<p className="text-lg tracking-tightest font-bold">
-					<Highlight>Being a Full-Stack Developer...</Highlight>
+					<Highlight>Being a&nbsp;{CONFIG.TITLE}...</Highlight>
 				</p>
 				<h1 className="text-6xl tracking-[-5px] text-white">
 					Who am I <Highlight>&amp;</Highlight> how did I get here?
@@ -67,7 +68,7 @@ export const About: FC = () => {
 			) : null}
 
 			{useMediaQuery(768) ? (
-				<div className="w-full bg-epic-black flex flex-col pt-10">
+				<div className="flex flex-col w-full bg-epic-black flex flex-col pt-10">
 					<MobileCodeComponent
 						lang={"javascript"}
 						level={"w-full"}

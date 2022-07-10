@@ -11,11 +11,9 @@
 	src: url("/fonts/JetBrainsMono-Regular.ttf");
 }
 
-html {
-	scroll-behavior: smooth;
-}
-
+html,
 body {
+	overflow: auto;
 	font-family: "JetBrains Mono", monospace;
 	background-color: theme("colors.epic-black");
 }
