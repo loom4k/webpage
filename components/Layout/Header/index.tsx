@@ -17,28 +17,31 @@ const links = [
 		name: "about",
 		href: "#about",
 		slash: "hash",
+		open: true,
 	},
 	{
 		name: "stack",
 		href: "/stack",
 		slash: "slash",
+		open: true,
 	},
 	{
 		name: "blog",
 		href: "/blog",
 		slash: "slash",
+		open: false,
 	},
 	{
 		name: "sponsorme",
 		href: "https://github.com/sponsors/loom4k",
 		slash: "arrow",
+		open: true,
 	},
 ];
 
 export const Header: FC = () => {
 	const isBreakPoint = useMediaQuery(768);
-	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-	const [onMainPage, setOnMainPage] = useState(false);
+	const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false);
 
 	return (
 		<>
@@ -61,23 +64,24 @@ export const Header: FC = () => {
 				</h1>
 
 				{!useMediaQuery(835) && (
-					<>
-						<HeaderLink
-							name={"about"}
-							href={"#about"}
-							slash={"hash"}
-						/>
-					</>
+					<HeaderLink
+						name={"about"}
+						href={"#about"}
+						open={true}
+						slash={"hash"}
+					/>
 				)}
 
 				{!isBreakPoint &&
 					links.map((link, key) => {
 						if (key == 0) return null;
+						if (link.open == false) return null;
 						return (
 							<HeaderLink
 								name={link.name}
 								href={link.href}
 								slash={link.slash}
+								open={link.open}
 								key={key}
 							/>
 						);
@@ -101,6 +105,7 @@ interface HeaderLinkProps {
 	name: string;
 	href: string;
 	slash: string;
+	open: boolean;
 }
 
 const HeaderLink = ({ name, href, slash }: HeaderLinkProps) => {
@@ -108,10 +113,10 @@ const HeaderLink = ({ name, href, slash }: HeaderLinkProps) => {
 
 	return (
 		<div
-			className="invisible md:visible
+			className={`invisible md:visible
         flex flex-row justify-center items-center 
-        text-pastel-white 
-        mt-2.5 ml-10"
+        text-white
+        mt-2.5 ml-10`}
 		>
 			<motion.div
 				onMouseEnter={() => controls.start("hover")}
@@ -119,7 +124,7 @@ const HeaderLink = ({ name, href, slash }: HeaderLinkProps) => {
 				variants={variants}
 				animate={controls}
 			>
-				<a href={href} className="text-white">
+				<a href={href}>
 					{slash == "slash" ? <Highlight>/</Highlight> : null}
 					{slash == "hash" ? <Highlight>#</Highlight> : null}
 					{slash == "arrow" ? (
@@ -200,11 +205,12 @@ const MobileNavButton = ({ func, mobileMenuOpen }: MobileNavButtonProps) => {
 const MobileDropDown = () => {
 	return (
 		<motion.div
-			className="relative top-20 w-screen h-72 px-10
+			className="fixed top-20 w-screen px-10
             flex flex-col
             bg-epic-black-light shadow-epic-black-light shadow-xl"
 		>
 			{links.map((link, key) => {
+				if (link.open == false) return null;
 				return (
 					<div
 						className="hover:cursor-pointer hover:bg-epic-black-light

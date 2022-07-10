@@ -12,6 +12,7 @@ module.exports = {
 			white: "#fff",
 			"epic-black": "#131212",
 			"epic-black-light": "#1c1b1b",
+			"gray": "#969696",
 			pastel: {
 				green: "#6dcc93",
 				"green-light": "#8ad1a6",
