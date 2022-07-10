@@ -24,7 +24,7 @@ export const Hero: FC = () => {
 			{useMediaQuery(768) && <div></div>}
 			<div
 				className="flex flex-col lg:w-1/2
-            px-8 sm:px-20 md:px-24 md:pr-6 2xl:pl-56 pt-16"
+            		px-8 sm:px-20 md:px-24 md:pr-6 2xl:pl-56 pt-16"
 			>
 				<h1 className="text-6xl tracking-tighter text-white">
 					Loïk Mallat
@@ -35,7 +35,7 @@ export const Hero: FC = () => {
 						</p>
 					) : null}
 				</h1>
-				<p className="mt-6 text-white text-sm">
+				<p className="mt-6 text-white text-md">
 					I am a {date - 2007} year old software developer living{" "}
 					{!useMediaQuery(980) && <br />}in Montreal, Canada.
 					<br />
@@ -76,7 +76,7 @@ export const Hero: FC = () => {
 						whileHover={{ scale: 1.025 }}
 					>
 						<img
-							src="./assets/profile_picture.jpeg"
+							src={"./assets/profile_picture.jpeg"} // Can be changed with "CONFIG.AVATAR_URL" (i use downloaded image cause my grandparent's internet is complete garbage)
 							alt="loom4k"
 							className="mx-auto md:h-128 md:w-128 w-full max-w-lg object-cover rounded-3xl"
 						/>

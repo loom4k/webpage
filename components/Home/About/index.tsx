@@ -7,7 +7,7 @@ export const About: FC = () => {
 	return (
 		<div
 			className="w-full
-                flex flex-row text-center md:text-left"
+                flex flex-col md:flex-row text-center md:text-left"
 			id="about"
 		>
 			<div
@@ -35,27 +35,58 @@ export const About: FC = () => {
 					</p>
 				</div>
 			</div>
+
+			{/* TODO: Merge these two to make one responsive component */}
 			{!useMediaQuery(1200) ? (
 				<div className="flex flex-col items-center justify-center mx-auto mr-24 2xl:mr-56 pt-0">
-					<CodeComponent
+					<DesktopCodeComponent
+						lang={"javascript"}
+						level={"w-full"}
+						logo={"javascript"}
+						ikey={0}
+					/>
+					<DesktopCodeComponent
 						lang={"typescript"}
 						level={"w-full"}
 						logo={"typescript"}
-						ikey={0}
-					/>
-					<CodeComponent
-						lang={"javascript"}
-						logo={"javascript"}
-						level={"w-full"}
 						ikey={1}
 					/>
-					<CodeComponent
+					<DesktopCodeComponent
 						lang={"java"}
 						logo={"java"}
 						level={"w-2/3"}
 						ikey={2}
 					/>
-					<CodeComponent
+					<DesktopCodeComponent
+						lang={"c#"}
+						logo={"csharp"}
+						level={"w-1/3"}
+						ikey={3}
+					/>
+				</div>
+			) : null}
+
+			{useMediaQuery(768) ? (
+				<div className="w-full bg-epic-black flex flex-col pt-10">
+					<MobileCodeComponent
+						lang={"javascript"}
+						level={"w-full"}
+						logo={"javascript"}
+						ikey={0}
+					/>
+					<MobileCodeComponent
+						lang={"typescript"}
+						level={"w-full"}
+						logo={"typescript"}
+						ikey={1}
+					/>
+					<MobileCodeComponent
+						lang={"java"}
+						logo={"java"}
+						level={"w-2/3"}
+						ikey={2}
+					/>
+					<MobileCodeComponent
 						lang={"c#"}
 						logo={"csharp"}
 						level={"w-1/3"}
@@ -74,10 +105,33 @@ type ICodeComponent = {
 	logo: string;
 };
 
-const CodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
-	return (
-		<motion.div
-			className={`w-[460px] h-16 rounded-lg ${ikey !== 0 ? `mt-4` : 'mt-28'}
+const MobileCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
+	return <motion.div 
+			className="bg-epic-black-light mx-auto w-4/5 h-16 rounded-lg mt-4 flex flex-row relative"
+			whileHover={{y: -5}}>
+			<img
+				src={`./assets/langs/${logo}.svg`}
+				className={`rounded-md mt-3 flex flex-row ${
+					logo == "typescript" ? "h-10 w-10 ml-3" : null
+				} ${logo == "java" ? "w-8 ml-4 mb-3" : null} ${
+					logo == "csharp" ? "w-10 ml-3 mb-3" : null
+				} ${
+					logo == "javascript"
+						? "h-10 w-10 ml-3 bg-pastel-yellow"
+						: null
+				}`}></img>
+			<p className={`text-white flex flex-row my-auto ml-4 ${logo == ("java" || "csharp") ? 'ml-5' : null}`}>{lang[0].toUpperCase() + lang.substring(1)}</p>
+			<div className="bg-epic-black h-2 w-60 my-auto flex flex-row rounded-full absolute right-4 top-[44%]">
+				<div className={`bg-pastel-green rounded-full ${level}`}></div>
+			</div>
+	</motion.div>;
+}
+
+const DesktopCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
+	return <motion.div
+			className={`w-[460px] h-16 rounded-lg ${
+				ikey !== 0 ? `mt-4` : "mt-28"
+			}
 						bg-epic-black-light flex flex-row relative overflow-hidden`}
 			whileHover={{ scale: 1.05 }}
 		>
@@ -87,7 +141,11 @@ const CodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
 					logo == "typescript" ? "h-10 w-10 ml-3 my-auto" : null
 				} ${logo == "java" ? "w-8 ml-4" : null} ${
 					logo == "csharp" ? "w-10 ml-3" : null
-				} ${logo == "javascript" ? "h-10 w-10 ml-3 my-auto bg-pastel-yellow" : null}`}
+				} ${
+					logo == "javascript"
+						? "h-10 w-10 ml-3 my-auto bg-pastel-yellow"
+						: null
+				}`}
 			></img>
 			<p
 				className={`text-white mt-[21px] ml-5 flex flex-row ${
@@ -96,11 +154,10 @@ const CodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
 			>
 				{lang[0].toUpperCase() + lang.substring(1)}
 			</p>
-			<div className="bg-white h-2 w-60 my-auto flex flex-row rounded-full absolute right-4 top-[44%]">
+			<div className="bg-epic-black h-2 w-60 my-auto flex flex-row rounded-full absolute right-4 top-[44%]">
 				<div className={`bg-pastel-green rounded-full ${level}`}></div>
 			</div>
-		</motion.div>
-	);
+		</motion.div>;
 };
 
 export default About;
