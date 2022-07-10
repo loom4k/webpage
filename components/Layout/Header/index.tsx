@@ -45,7 +45,9 @@ export const Header: FC = () => {
 			<motion.div
 				className={`fixed md:static top-0 w-screen h-24 md:h-48 px-8 md:px-24 2xl:px-56
                     flex flex-row
-                    ${mobileMenuOpen ? 'bg-epic-black-light' : 'bg-epic-black'}`}
+                    ${
+						mobileMenuOpen ? "bg-epic-black-light" : "bg-epic-black"
+					}`}
 			>
 				<h1
 					onClick={() => {
@@ -53,7 +55,9 @@ export const Header: FC = () => {
 					}}
 					className="flex flex-row justify-center items-center text-white text-3xl mr-5"
 				>
-					<div className="hover:cursor-pointer">{CONFIG.NICKNAME}</div>
+					<div className="hover:cursor-pointer">
+						{CONFIG.NICKNAME}
+					</div>
 				</h1>
 
 				{!useMediaQuery(835) && (
@@ -171,7 +175,7 @@ const MobileNavButton = ({ func, mobileMenuOpen }: MobileNavButtonProps) => {
                     text-white text-xl
                     ml-auto hover:cursor-default"
 			onClick={() => {
-				document.body.style.overflow = 'auto'
+				document.body.style.overflow = "auto";
 				func(!mobileMenuOpen);
 			}}
 		>

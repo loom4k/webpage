@@ -6,11 +6,13 @@ import Footer from "@components/Layout/Footer";
 import StackComponent from "@components/Stack";
 
 const Stack: NextPage<PageProps> = ({ lang }) => {
-    return <div className="relative">
-        <Header />
-        <StackComponent />
-        <Footer />
-    </div>;
-}
+	return (
+		<div className="relative">
+			<Header />
+			<StackComponent />
+			<Footer />
+		</div>
+	);
+};
 
 export default Stack;

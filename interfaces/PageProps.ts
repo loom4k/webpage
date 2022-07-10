@@ -1,3 +1,3 @@
 export interface PageProps {
-    lang: string
+	lang: string;
 }

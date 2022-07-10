@@ -42,7 +42,7 @@ export const Hero: FC = () => {
 						name={"typescript"}
 						href={"https://www.typescriptlang.org/"}
 						color={"text-pastel-blurple"}
-					/>	
+					/>
 					,&nbsp;
 					<LanguageLink
 						name={"java"}

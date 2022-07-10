@@ -107,9 +107,11 @@ type ICodeComponent = {
 };
 
 const MobileCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
-	return <motion.div 
+	return (
+		<motion.div
 			className="bg-epic-black-light mx-auto w-4/5 h-16 rounded-lg mt-4 flex flex-row relative"
-			whileHover={{y: -5}}>
+			whileHover={{ y: -5 }}
+		>
 			<img
 				src={`./assets/langs/${logo}.svg`}
 				className={`rounded-md mt-3 flex flex-row ${
@@ -120,16 +122,25 @@ const MobileCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
 					logo == "javascript"
 						? "h-10 w-10 ml-3 bg-pastel-yellow"
 						: null
-				}`}></img>
-			<p className={`text-white flex flex-row my-auto ml-4 ${logo == ("java" || "csharp") ? 'ml-5' : null}`}>{lang[0].toUpperCase() + lang.substring(1)}</p>
+				}`}
+			></img>
+			<p
+				className={`text-white flex flex-row my-auto ml-4 ${
+					logo == ("java" || "csharp") ? "ml-5" : null
+				}`}
+			>
+				{lang[0].toUpperCase() + lang.substring(1)}
+			</p>
 			<div className="bg-epic-black h-2 w-60 my-auto flex flex-row rounded-full absolute right-4 top-[44%]">
 				<div className={`bg-pastel-green rounded-full ${level}`}></div>
 			</div>
-	</motion.div>;
-}
+		</motion.div>
+	);
+};
 
 const DesktopCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
-	return <motion.div
+	return (
+		<motion.div
 			className={`w-[460px] h-16 rounded-lg ${
 				ikey !== 0 ? `mt-4` : "mt-28"
 			}
@@ -158,7 +169,8 @@ const DesktopCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
 			<div className="bg-epic-black h-2 w-60 my-auto flex flex-row rounded-full absolute right-4 top-[44%]">
 				<div className={`bg-pastel-green rounded-full ${level}`}></div>
 			</div>
-		</motion.div>;
+		</motion.div>
+	);
 };
 
 export default About;

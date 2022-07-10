@@ -7,12 +7,14 @@ import About from "@components/Home/About";
 import Footer from "@components/Layout/Footer";
 
 const Home: NextPage<PageProps> = ({ lang }) => {
-	return <div className="relative">
+	return (
+		<div className="relative">
 			<Header />
 			<Hero />
 			<About />
 			<Footer />
-		</div>;
+		</div>
+	);
 };
 
 export default Home;
