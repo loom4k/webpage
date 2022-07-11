@@ -68,7 +68,7 @@ export const About: FC = () => {
 			) : null}
 
 			{useMediaQuery(768) ? (
-				<div className="flex flex-col w-full bg-epic-black flex flex-col pt-10">
+				<div className="flex flex-col w-full bg-epic-black pt-10">
 					<MobileCodeComponent
 						lang={"javascript"}
 						level={"w-full"}
@@ -131,7 +131,7 @@ const MobileCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
 			>
 				{lang[0].toUpperCase() + lang.substring(1)}
 			</p>
-			<div className={`bg-epic-black h-2 ${useMediaQuery(550) ? 'w-1/4' : 'w-60'} my-auto flex flex-row rounded-full absolute right-4 top-[44%]`}>
+			<div className={`bg-epic-black h-2 ${useMediaQuery(450) ? 'w-1/4' : 'w-60'} my-auto flex flex-row rounded-full absolute right-4 top-[44%]`}>
 				<div className={`bg-pastel-green rounded-full ${level}`}></div>
 			</div>
 		</motion.div>

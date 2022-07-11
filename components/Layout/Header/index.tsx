@@ -45,6 +45,7 @@ export const Header: FC = () => {
 
 	return (
 		<>
+			<div id="top" className="bg-pastel-green h-2 w-full"></div>
 			<motion.div
 				className={`fixed md:static top-0 w-screen h-24 md:h-48 px-8 md:px-24 2xl:px-56
                     flex flex-row
@@ -173,6 +174,8 @@ interface MobileNavButtonProps {
 }
 
 const MobileNavButton = ({ func, mobileMenuOpen }: MobileNavButtonProps) => {
+	const [ hiddenOverflow, setHiddenOverflow ] = useState(false);
+	
 	return (
 		<button
 			className="visible md:invisible
@@ -180,7 +183,14 @@ const MobileNavButton = ({ func, mobileMenuOpen }: MobileNavButtonProps) => {
                     text-white text-xl
                     ml-auto hover:cursor-default"
 			onClick={() => {
-				document.body.style.overflow = "auto";
+				if(hiddenOverflow == false) {
+					document.body.style.overflow = 'hidden'
+					setHiddenOverflow(true);
+				} else {
+					document.body.style.overflow = 'auto'
+					setHiddenOverflow(false);
+				}
+				window.location.href = '#top'
 				func(!mobileMenuOpen);
 			}}
 		>
@@ -206,7 +216,7 @@ const MobileDropDown = () => {
 	return (
 		<motion.div
 			className="fixed top-20 w-screen px-10
-            flex flex-col
+            flex flex-col overflow-y-scroll
             bg-epic-black-light shadow-epic-black-light shadow-xl"
 		>
 			{links.map((link, key) => {
