@@ -47,7 +47,7 @@ export const Header: FC = () => {
 		<>
 			<div id="top" className="bg-pastel-green h-2 w-full"></div>
 			<motion.div
-				className={`fixed md:static top-0 w-screen h-24 md:h-48 px-8 md:px-24 2xl:px-56
+				className={`fixed md:static top-0 w-screen md:w-auto h-24 md:h-48 px-8 md:px-24 2xl:px-56
                     flex flex-row
                     ${
 						mobileMenuOpen ? "bg-epic-black-light" : "bg-epic-black"

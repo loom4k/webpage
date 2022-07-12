@@ -13,6 +13,7 @@
 
 html,
 body {
+	overflow: none;
 	font-family: "JetBrains Mono", monospace;
 	background-color: theme("colors.epic-black");
 }

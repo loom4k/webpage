@@ -131,7 +131,7 @@ const MobileCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
 			>
 				{lang[0].toUpperCase() + lang.substring(1)}
 			</p>
-			<div className={`bg-epic-black h-2 ${useMediaQuery(450) ? 'w-1/4' : 'w-60'} my-auto flex flex-row rounded-full absolute right-4 top-[44%]`}>
+			<div className={`bg-epic-black h-2 ${useMediaQuery(550) ? 'w-1/4' : 'w-60'} my-auto flex flex-row rounded-full absolute right-4 top-[44%]`}>
 				<div className={`bg-pastel-green rounded-full ${level}`}></div>
 			</div>
 		</motion.div>

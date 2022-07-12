@@ -1,3 +1,4 @@
+import Highlight from "@components/Highlight";
 import { STACK } from "@root/libs/config/stack";
 import { motion } from "framer-motion";
 import { FC } from "react";
@@ -5,8 +6,17 @@ import { FC } from "react";
 export const Stack: FC = () => {
 	return (
 		<div>
+			<div className="flex flex-col text-white px-60">
+				<h1 className="flex flex-col mx-auto text-3xl tracking-tightest">
+					Technologies I use &amp; support
+				</h1>
+				<p className="flex flex-col text-center mt-4">
+					I highly leverage new bleeding-edge technologies and languages like Typescript to stay on top of the game. You can find a list
+					of my most-used technologies below. I use these technologies to build my own projects and to support my work.
+				</p>
+			</div>
 			<div
-				className="w-full grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-5 gap-4 mt-32 md:mt-0
+				className="w-full grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-5 gap-4 mt-32 md:mt-8
                     px-8 sm:px-20 md:px-24 2xl:px-56"
 			>
 				{STACK.map((lang, key) => (

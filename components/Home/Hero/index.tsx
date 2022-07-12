@@ -9,8 +9,7 @@ import Highlight from "@components/Highlight";
 export const Hero: FC = () => {
 	const date = new Date().getFullYear();
 
-	return (
-		<div
+	return <div
 			className="w-full mt-24 md:mt-0
                 flex flex-row
                 bg-epic-black text-center md:text-left"
@@ -77,8 +76,7 @@ export const Hero: FC = () => {
 					</motion.div>
 				</div>
 			)}
-		</div>
-	);
+		</div>;
 };
 
 interface LanguageLinkProps {
