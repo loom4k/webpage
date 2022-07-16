@@ -107,6 +107,17 @@ type ICodeComponent = {
 };
 
 const MobileCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
+	let fLevel;
+	if(level == "w-full") {
+		fLevel = '100%';
+	} else if(level == "w-2/3") {
+		fLevel = '66.6%';
+	} else if(level == "w-1/3") {
+		fLevel = '33.3%';
+	} else {
+		fLevel = '0%';
+	}
+
 	return (
 		<motion.div
 			className="bg-epic-black-light mx-auto w-4/5 h-16 rounded-lg mt-4 flex flex-row relative"
@@ -136,13 +147,27 @@ const MobileCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
 					useMediaQuery(550) ? "w-1/4" : "w-60"
 				} my-auto flex flex-row rounded-full absolute right-4 top-[44%]`}
 			>
-				<div className={`bg-pastel-green rounded-full ${level}`}></div>
+				<motion.div 
+					animate={{ width: fLevel }} 
+					transition={{ duration: 5 }}
+					className={`bg-pastel-green rounded-full`}></motion.div>
 			</div>
 		</motion.div>
 	);
 };
 
 const DesktopCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
+	let fLevel;
+	if(level == "w-full") {
+		fLevel = '100%';
+	} else if(level == "w-2/3") {
+		fLevel = '66.6%';
+	} else if(level == "w-1/3") {
+		fLevel = '33.3%';
+	} else {
+		fLevel = '0%';
+	}
+
 	return (
 		<motion.div
 			className={`w-[460px] h-16 rounded-lg ${
@@ -171,7 +196,10 @@ const DesktopCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
 				{lang[0].toUpperCase() + lang.substring(1)}
 			</p>
 			<div className="bg-epic-black h-2 w-60 my-auto flex flex-row rounded-full absolute right-4 top-[44%]">
-				<div className={`bg-pastel-green rounded-full ${level}`}></div>
+				<motion.div 
+					animate={{ width: fLevel }} 
+					transition={{ duration: 5 }}
+					className={`bg-pastel-green rounded-full`}></motion.div>
 			</div>
 		</motion.div>
 	);
