@@ -11,8 +11,11 @@ export const Stack: FC = () => {
 					Technologies I use &amp; support
 				</h1>
 				<p className="flex flex-col text-center mt-4">
-					I highly leverage new bleeding-edge technologies and languages like Typescript to stay on top of the game. You can find a list
-					of my most-used technologies below. I use these technologies to build my own projects and to support my work.
+					I highly leverage new bleeding-edge technologies and
+					languages like Typescript to stay on top of the game. You
+					can find a list of my most-used technologies below. I use
+					these technologies to build my own projects and to support
+					my work.
 				</p>
 			</div>
 			<div
@@ -20,7 +23,12 @@ export const Stack: FC = () => {
                     px-8 sm:px-20 md:px-24 2xl:px-56"
 			>
 				{STACK.map((lang, key) => (
-					<StackCard name={lang.name} logo={lang.logo} />
+					<StackCard
+						name={lang.name}
+						logo={lang.logo}
+						lang={lang}
+						key={key}
+					/>
 				))}
 			</div>
 			<div className="w-full"></div>
@@ -31,13 +39,21 @@ export const Stack: FC = () => {
 interface IStackCard {
 	name: string;
 	logo: string;
+	lang: any;
 }
 
-const StackCard = ({ name, logo }: IStackCard) => {
+const StackCard = ({ name, logo, lang }: IStackCard) => {
 	return (
 		<motion.div
-			className="bg-epic-black-light flex flex-col rounded-md h-40"
+			className={`bg-epic-black-light ${
+				lang.hoverColor
+			} flex flex-col rounded-md h-40 ${
+				lang.name == "Github" ? "hover:cursor-pointer" : null
+			}`}
 			whileHover={{ y: -5 }}
+			onClick={() => {
+				window.location.href = lang.href;
+			}}
 		>
 			<img
 				src={`./assets/langs/${logo}`}

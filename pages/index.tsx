@@ -5,6 +5,7 @@ import Header from "@components/Layout/Header";
 import Hero from "@components/Home/Hero";
 import About from "@components/Home/About";
 import Footer from "@components/Layout/Footer";
+import More from "@components/Home/More";
 
 const Home: NextPage<PageProps> = ({ lang }) => {
 	return (
@@ -12,6 +13,7 @@ const Home: NextPage<PageProps> = ({ lang }) => {
 			<Header />
 			<Hero />
 			<About />
+			<More />
 			<Footer />
 		</div>
 	);

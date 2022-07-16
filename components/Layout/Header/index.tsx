@@ -1,11 +1,12 @@
-import { AnimatePresence, motion, useAnimation } from "framer-motion";
-import { FC, useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { FC, useState } from "react";
 import { HiMail } from "react-icons/hi";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import useMediaQuery from "@utils/useMediaQuery";
 import Highlight from "@components/Highlight";
 import { CONFIG } from "@root/libs/config";
+import Tippy from "@tippyjs/react";
 
 const variants = {
 	hover: { y: -5 },
@@ -26,6 +27,12 @@ const links = [
 		open: true,
 	},
 	{
+		name: "hire",
+		href: "/hire",
+		slash: "slash",
+		open: false,
+	},
+	{
 		name: "blog",
 		href: "/blog",
 		slash: "slash",
@@ -41,14 +48,14 @@ const links = [
 
 export const Header: FC = () => {
 	const isBreakPoint = useMediaQuery(768);
-	const [ mobileMenuOpen, setMobileMenuOpen ] = useState(false);
+	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	return (
 		<>
 			<div id="top" className="bg-pastel-green h-2 w-full"></div>
 			<motion.div
 				className={`fixed md:static top-0 w-screen md:w-auto h-24 md:h-48 px-8 md:px-24 2xl:px-56
-                    flex flex-row
+                    flex flex-row lg:relative
                     ${
 						mobileMenuOpen ? "bg-epic-black-light" : "bg-epic-black"
 					}`}
@@ -138,34 +145,44 @@ const HeaderLink = ({ name, href, slash }: HeaderLinkProps) => {
 	);
 };
 
+const buttonVariants = {
+	default: { opacity: 0 },
+	hover: { opacity: 1 }
+}
+
 const ContactButton = () => {
-	return (
-		<button
-			className="invisible md:visible
-                    flex flex-row justify-center items-center 
-                    text-white text-xl 
-                    ml-auto hover:cursor-default"
-			onClick={() =>
-				(window.location.href =
-					"https://hidemyemail.cc/a5f135c348ace656c125b7f87aee3bc6")
-			}
-		>
-			<motion.div
-				whileHover={{
-					y: -5,
-				}}
-				className="w-10 lg:w-36 h-10
-                rounded-full lg:rounded-md 
-                bg-pastel-green 
-                hover:cursor-pointer"
+	const [ buttonHovered, setButtonHovered ] = useState(false);
+
+	return <>
+			<button
+				className="invisible md:visible
+						flex flex-row justify-center items-center 
+						text-white text-xl 
+						ml-auto hover:cursor-default"
+				onClick={() =>
+					(window.location.href =
+						"https://hidemyemail.cc/a5f135c348ace656c125b7f87aee3bc6")
+				}
 			>
-				<p className="mt-1.5 text-epic-black">
-					<HiMail className="float-left mt-[5.25px] ml-2.5" />
-					<span className="invisible lg:visible">contact</span>
-				</p>
-			</motion.div>
-		</button>
-	);
+				<motion.div
+					whileHover={{
+						y: -5
+					}}
+					onHoverStart={() => setButtonHovered(true)}
+					onHoverEnd={() => setButtonHovered(false)}
+					className="w-10 h-10 lg:w-[136px]
+					rounded-full lg:rounded-md 
+					bg-pastel-green 
+					hover:cursor-pointer"
+				>
+					<p className="mt-1.5 text-epic-black text-left">
+						<HiMail className="float-left mt-[5.25px] ml-2.5" />
+						<span className="float-left invisible lg:visible ml-2">contact</span>
+					</p>
+				</motion.div>
+			</button>
+			<p className="text-white text-[10px] absolute top-[120px] right-[106px]">(contact@loom4k.me)</p>
+		</>;
 };
 
 interface MobileNavButtonProps {
@@ -174,8 +191,8 @@ interface MobileNavButtonProps {
 }
 
 const MobileNavButton = ({ func, mobileMenuOpen }: MobileNavButtonProps) => {
-	const [ hiddenOverflow, setHiddenOverflow ] = useState(false);
-	
+	const [hiddenOverflow, setHiddenOverflow] = useState(false);
+
 	return (
 		<button
 			className="visible md:invisible
@@ -183,14 +200,14 @@ const MobileNavButton = ({ func, mobileMenuOpen }: MobileNavButtonProps) => {
                     text-white text-xl
                     ml-auto hover:cursor-default"
 			onClick={() => {
-				if(hiddenOverflow == false) {
-					document.body.style.overflow = 'hidden'
+				if (hiddenOverflow == false) {
+					document.body.style.overflow = "hidden";
 					setHiddenOverflow(true);
 				} else {
-					document.body.style.overflow = 'auto'
+					document.body.style.overflow = "auto";
 					setHiddenOverflow(false);
 				}
-				window.location.href = '#top'
+				window.location.href = "#top";
 				func(!mobileMenuOpen);
 			}}
 		>

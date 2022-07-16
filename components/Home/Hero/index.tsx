@@ -9,7 +9,8 @@ import Highlight from "@components/Highlight";
 export const Hero: FC = () => {
 	const date = new Date().getFullYear();
 
-	return <div
+	return (
+		<div
 			className="w-full mt-24 md:mt-0
                 flex flex-row
                 bg-epic-black text-center md:text-left"
@@ -69,14 +70,15 @@ export const Hero: FC = () => {
 						whileHover={{ scale: 1.025 }}
 					>
 						<img
-							src={"./assets/profile_picture.jpeg"} // Can be changed with "CONFIG.AVATAR_URL" (i use downloaded image cause my grandparent's internet is complete garbage)
+							src={CONFIG.AVATAR_URL} // Can be changed with "CONFIG.AVATAR_URL" (i use downloaded image cause my grandparent's internet is complete garbage)
 							alt="loom4k"
 							className="mx-auto md:h-128 md:w-128 w-full max-w-lg object-cover rounded-3xl"
 						/>
 					</motion.div>
 				</div>
 			)}
-		</div>;
+		</div>
+	);
 };
 
 interface LanguageLinkProps {
