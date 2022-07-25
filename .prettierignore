@@ -1,0 +1,13 @@
+.git
+.github
+.next
+.swc
+node_modules
+
+.dockerignore
+.eslintignore
+.eslintrc
+.gitignore
+
+Dockerfile
+README.md

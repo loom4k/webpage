@@ -1,58 +1,110 @@
 export const STACK = [
-    {
-        icon: "https://www.svgrepo.com/show/341847/github.svg",
-        name: "GitHub",
-    },
-    {
-        icon: "https://www.svgrepo.com/show/30521/java.svg",
-        name: "Java",
-    },
-    {
-        icon: "https://raw.githubusercontent.com/barbarbar338/webpage/ea3e1e58a668474b96f9aac5cf4929286826b57e/assets/stack/linux.svg",
-        name: "Linux",
-    },
-    {
-        icon: "https://raw.githubusercontent.com/barbarbar338/webpage/ea3e1e58a668474b96f9aac5cf4929286826b57e/assets/stack/mongodb.svg",
-        name: "MongoDB",
-    },
-    {
-        icon: "https://www.svgrepo.com/show/369457/nextjs.svg",
-        name: "Next.js",
-    },
-    {
-        icon: "https://raw.githubusercontent.com/barbarbar338/webpage/ea3e1e58a668474b96f9aac5cf4929286826b57e/assets/stack/nodejs.svg",
-        name: "Node.js",
-    },
-    {
-        icon: "https://raw.githubusercontent.com/barbarbar338/webpage/ea3e1e58a668474b96f9aac5cf4929286826b57e/assets/stack/postgresql.svg",
-        name: "PostgreSQL",
-    },
-    {
-        icon: "https://raw.githubusercontent.com/barbarbar338/webpage/ea3e1e58a668474b96f9aac5cf4929286826b57e/assets/stack/python.svg",
-        name: "Python",
-    },
-    {
-        icon: "https://raw.githubusercontent.com/barbarbar338/webpage/ea3e1e58a668474b96f9aac5cf4929286826b57e/assets/stack/react.svg",
-        name: "React",
-    },
-    {
-        icon: "https://raw.githubusercontent.com/barbarbar338/webpage/ea3e1e58a668474b96f9aac5cf4929286826b57e/assets/stack/rust.svg",
-        name: "Rust",
-    },
-    {
-        icon: "https://raw.githubusercontent.com/barbarbar338/webpage/ea3e1e58a668474b96f9aac5cf4929286826b57e/assets/stack/sqlite.svg",
-        name: "SQLite",
-    },
-    {
-        icon: "https://raw.githubusercontent.com/barbarbar338/webpage/ea3e1e58a668474b96f9aac5cf4929286826b57e/assets/stack/tailwind.svg",
-        name: "Tailwind CSS",
-    },
-    {
-        icon: "https://raw.githubusercontent.com/barbarbar338/webpage/ea3e1e58a668474b96f9aac5cf4929286826b57e/assets/stack/typescript.svg",
-        name: "TypeScript",
-    },
-    {
-        icon: "https://www.svgrepo.com/show/331626/unity.svg",
-        name: "Unity",
-    },
-]
+	{
+		name: "Typescript",
+		logo: "typescript.svg",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "C#",
+		logo: "csharp.svg",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "NodeJS",
+		logo: "nodejs.png",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "Java",
+		logo: "java.svg",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "Python",
+		logo: "python.png",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "Swift",
+		logo: "swift.png",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "CoffeeScript",
+		logo: "coffeescript.png",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "CSS",
+		logo: "css.png",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "HTML",
+		logo: "html.png",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "Docker",
+		logo: "docker.png",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "Github",
+		logo: "github.png",
+		href: "https://github.com/sponsors/loom4k",
+		hoverColor: "hover:bg-pastel-pink",
+	},
+	{
+		name: "Unity Engine",
+		logo: "unity.png",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "GNU/Linux",
+		logo: "linux.png",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "Tensorflow ML",
+		logo: "tensorflow.png",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "Git VCS",
+		logo: "git.png",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "Tailwind CSS",
+		logo: "tailwind.png",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "Next.js",
+		logo: "nextjs.png",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+	{
+		name: "React",
+		logo: "react.png",
+		href: "",
+		hoverColor: "hover:bg-epic-black-light",
+	},
+];

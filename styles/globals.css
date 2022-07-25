@@ -1,36 +1,33 @@
+/* Use tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+/* Import fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
+
+@font-face {
+	font-family: "JetBrains Mono";
+	src: url("/fonts/JetBrainsMono-Regular.ttf");
+}
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Inconsolata', monospace;
+	overflow: none;
+	font-family: "JetBrains Mono", monospace;
+	background-color: theme("colors.epic-black");
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-
+img {
+	user-drag: none;
+	-webkit-user-drag: none;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 }
 
 ::selection {
-  --tw-text-opacity: 1;
-  background-color: rgba(131, 202, 157, 0.25);
-}
-
-.nav-element:hover .slash {
-  transition: all .5s ease-in-out;
-  margin-right: 3px;
-}
-
-.hero-content {
-  z-index: 0;
+	background-color: theme("colors.pastel.green");
+	color: #000;
 }

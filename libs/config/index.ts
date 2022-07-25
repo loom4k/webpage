@@ -1,18 +1,8 @@
-import { STACK } from './stack';
-
 export const CONFIG = {
-    NAME: "Loïk",
-    SURNAME: "Mallat",
-    NICK: "loom4k",
-    EMAIL: "contact@loom4k.me",
-    GITHUB_USERNAME: "loom4k",
-    LANYARD_ID: "meow",
-    BLOG: {
-        discussions: {
-            username: "loom4k",
-            repo: "webpage",
-            repo_id: "377311375"
-        }
-    },
-    STACK
-}
+	NAME: "Loïk Mallat",
+	AKA: "loom",
+	NICKNAME: "loom4k",
+	LOCATION: "Montreal, Canada",
+	TITLE: "Full-Stack Developer",
+	AVATAR_URL: "https://avatars.githubusercontent.com/u/58235265",
+};

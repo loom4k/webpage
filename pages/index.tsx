@@ -1,22 +1,22 @@
-import type { NextPage } from 'next'
+import type { NextPage } from "next";
 
-import { Navbar } from '@components/Layout/Navbar'
-import { Hero } from '@components/Home/Hero'
-import { About } from '@components/Home/About'
-import { Stack } from '@components/Stack'
-import { SEO } from "@components/Layout/SEO"
+import { PageProps } from "@interfaces/PageProps";
+import Header from "@components/Layout/Header";
+import Hero from "@components/Home/Hero";
+import About from "@components/Home/About";
+import Footer from "@components/Layout/Footer";
+import More from "@components/Home/More";
 
-const Home: NextPage = () => {
-  return (
-    <>
-      <SEO />
-      <Navbar />
-      <Hero />
+const Home: NextPage<PageProps> = ({ lang }) => {
+	return (
+		<div className="relative">
+			<Header />
+			<Hero />
+			<About />
+			<More />
+			<Footer />
+		</div>
+	);
+};
 
-      <About />
-      <Stack />
-    </>
-  )
-}
-
-export default Home
+export default Home;
