@@ -52,10 +52,9 @@ export const More: FC = () => {
 					</span>
 					.<br />
 					<br />I also play a lot of tennis and videogames with my
-					friend. I am a{" "}
-					<Highlight>certified ski instructor</Highlight> as well, I
-					can't wait for <Highlight>winter</Highlight> to start so I
-					can restart skiing!
+					friend. I am a <Highlight>ski instructor</Highlight> as
+					well, I can't wait for <Highlight>winter</Highlight> to
+					start so I can restart skiing!
 				</p>
 				{useMediaQuery(767) && (
 					<div className="flex flex-row relative">

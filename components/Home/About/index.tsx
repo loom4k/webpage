@@ -108,14 +108,14 @@ type ICodeComponent = {
 
 const MobileCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
 	let fLevel;
-	if(level == "w-full") {
-		fLevel = '100%';
-	} else if(level == "w-2/3") {
-		fLevel = '66.6%';
-	} else if(level == "w-1/3") {
-		fLevel = '33.3%';
+	if (level == "w-full") {
+		fLevel = "100%";
+	} else if (level == "w-2/3") {
+		fLevel = "66.6%";
+	} else if (level == "w-1/3") {
+		fLevel = "33.3%";
 	} else {
-		fLevel = '0%';
+		fLevel = "0%";
 	}
 
 	return (
@@ -147,10 +147,11 @@ const MobileCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
 					useMediaQuery(550) ? "w-1/4" : "w-60"
 				} my-auto flex flex-row rounded-full absolute right-4 top-[44%]`}
 			>
-				<motion.div 
-					animate={{ width: fLevel }} 
+				<motion.div
+					animate={{ width: fLevel }}
 					transition={{ duration: 5 }}
-					className={`bg-pastel-green rounded-full`}></motion.div>
+					className={`bg-pastel-green rounded-full`}
+				></motion.div>
 			</div>
 		</motion.div>
 	);
@@ -158,14 +159,14 @@ const MobileCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
 
 const DesktopCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
 	let fLevel;
-	if(level == "w-full") {
-		fLevel = '100%';
-	} else if(level == "w-2/3") {
-		fLevel = '66.6%';
-	} else if(level == "w-1/3") {
-		fLevel = '33.3%';
+	if (level == "w-full") {
+		fLevel = "100%";
+	} else if (level == "w-2/3") {
+		fLevel = "66.6%";
+	} else if (level == "w-1/3") {
+		fLevel = "33.3%";
 	} else {
-		fLevel = '0%';
+		fLevel = "0%";
 	}
 
 	return (
@@ -196,10 +197,11 @@ const DesktopCodeComponent = ({ lang, level, logo, ikey }: ICodeComponent) => {
 				{lang[0].toUpperCase() + lang.substring(1)}
 			</p>
 			<div className="bg-epic-black h-2 w-60 my-auto flex flex-row rounded-full absolute right-4 top-[44%]">
-				<motion.div 
-					animate={{ width: fLevel }} 
+				<motion.div
+					animate={{ width: fLevel }}
 					transition={{ duration: 5 }}
-					className={`bg-pastel-green rounded-full`}></motion.div>
+					className={`bg-pastel-green rounded-full`}
+				></motion.div>
 			</div>
 		</motion.div>
 	);
