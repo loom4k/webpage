@@ -1,12 +1,14 @@
 import { motion, useAnimation } from "framer-motion";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import { HiMail } from "react-icons/hi";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { RiMoonClearFill } from "react-icons/ri";
+import { IoMdSunny } from "react-icons/io";
 
 import useMediaQuery from "@utils/useMediaQuery";
 import Highlight from "@components/Highlight";
 import { CONFIG } from "@root/libs/config";
-import Tippy from "@tippyjs/react";
 
 const variants = {
 	hover: { y: -5 },
@@ -15,9 +17,9 @@ const variants = {
 
 const links = [
 	{
-		name: "about",
-		href: "#about",
-		slash: "hash",
+		name: "home",
+		href: "/",
+		slash: "slash",
 		open: true,
 	},
 	{
@@ -52,7 +54,7 @@ export const Header: FC = () => {
 
 	return (
 		<>
-			<div id="top" className="bg-pastel-green h-2 w-full"></div>
+			<div id="top" className="h-2 w-full bg-pastel-green"></div>
 			<motion.div
 				className={`fixed md:static top-0 w-screen md:w-auto h-24 md:h-48 px-8 md:px-24 2xl:px-56
                     flex flex-row lg:relative
@@ -71,18 +73,8 @@ export const Header: FC = () => {
 					</div>
 				</h1>
 
-				{!useMediaQuery(835) && (
-					<HeaderLink
-						name={"about"}
-						href={"#about"}
-						open={true}
-						slash={"hash"}
-					/>
-				)}
-
 				{!isBreakPoint &&
 					links.map((link, key) => {
-						if (key == 0) return null;
 						if (link.open == false) return null;
 						return (
 							<HeaderLink
@@ -147,13 +139,14 @@ const HeaderLink = ({ name, href, slash }: HeaderLinkProps) => {
 
 const buttonVariants = {
 	default: { opacity: 0 },
-	hover: { opacity: 1 }
-}
+	hover: { opacity: 1 },
+};
 
 const ContactButton = () => {
-	const [ buttonHovered, setButtonHovered ] = useState(false);
+	const [buttonHovered, setButtonHovered] = useState(false);
 
-	return <>
+	return (
+		<>
 			<button
 				className="invisible md:visible
 						flex flex-row justify-center items-center 
@@ -166,7 +159,7 @@ const ContactButton = () => {
 			>
 				<motion.div
 					whileHover={{
-						y: -5
+						y: -5,
 					}}
 					onHoverStart={() => setButtonHovered(true)}
 					onHoverEnd={() => setButtonHovered(false)}
@@ -177,12 +170,19 @@ const ContactButton = () => {
 				>
 					<p className="mt-1.5 text-epic-black text-left">
 						<HiMail className="float-left mt-[5.25px] ml-2.5" />
-						<span className="float-left invisible lg:visible ml-2">contact</span>
+						<span className="float-left invisible lg:visible ml-2">
+							contact
+						</span>
 					</p>
 				</motion.div>
 			</button>
-			<p className="text-white text-[10px] absolute top-[120px] right-[106px]">(contact@loom4k.me)</p>
-		</>;
+			{!useMediaQuery(1023) ? (
+				<p className="text-white text-[10px] absolute top-[120px] right-[106px] 2xl:right-[234px]">
+					(contact@loom4k.me)
+				</p>
+			) : null}
+		</>
+	);
 };
 
 interface MobileNavButtonProps {
