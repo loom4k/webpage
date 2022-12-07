@@ -60,7 +60,7 @@ export const STACK = [
 		hoverColor: "hover:bg-epic-black-light",
 	},
 	{
-		name: "Github",
+		name: "GitHub",
 		logo: "github.png",
 		href: "https://github.com/sponsors/loom4k",
 		hoverColor: "hover:bg-pastel-pink",
