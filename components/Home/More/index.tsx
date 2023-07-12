@@ -39,20 +39,10 @@ export const More: FC = () => {
 				</h1>
 				<p className="mt-4">
 					You will most likely find me playing{" "}
-					<Highlight>Microsoft Flight Simulator</Highlight>, petting
-					my dog, or&nbsp;
-					<span
-						onClick={() =>
-							(window.location.href =
-								"https://www.youtube.com/watch?v=YfVt_jMaaKk")
-						}
-						className="hover:cursor-pointer text-pastel-green underline hover:no-underline"
-					>
-						reading a book
-					</span>
-					.<br />
-					<br />I also play a lot of tennis and videogames with my
-					friend. I am a <Highlight>ski instructor</Highlight> as
+					<Highlight>Digital Combat Simulator</Highlight>, petting
+					my dog, or reading a <Highlight>Wikipedia</Highlight> article.<br />
+					<br />I also play tennis and videogames with my
+					friends. I am a <Highlight>ski instructor</Highlight> as
 					well, I can't wait for <Highlight>winter</Highlight> to
 					start so I can restart skiing!
 				</p>
