@@ -57,7 +57,7 @@ const Status: FC = () => {
 
 	return (
 		// @ts-ignore
-		<span>{getStatus()[0].toLowerCase() + getStatus()?.substring(1)}</span>
+		<span className={getColor().color}>{getStatus()[0].toLowerCase() + getStatus()?.substring(1)}</span>
 	);
 };
 
