@@ -1,3 +1,6 @@
+> [!CAUTION]
+> As of right now, the webpage WILL NOT RUN on Vercel with Node version 14.0. A refactor is on the way, the branch will soon appear, open to contributions
+
 # loom's webpage documentation
 This repository contains the assets and the source code required to build [loom4k's personnal webpage](https://loom4k.me). I am glad you want to contribute!
 - [Contributing to the website](https://github.com/loom4k/webpage/pull  )
